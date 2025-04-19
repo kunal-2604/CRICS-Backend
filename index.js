@@ -36,6 +36,6 @@ app.use('/api', leaderboardRoutes);
 app.use('/api', eventsRoutes);
 app.use('/api', teamRoutes);
 
-app.listen(PORT, '192.168.254.243', () => {
+app.listen(PORT, () => {
   console.log(`Server is running`);
 });
