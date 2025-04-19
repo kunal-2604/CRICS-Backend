@@ -1,0 +1,41 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const mysql = require('mysql2');
+
+const app = express();
+app.use(bodyParser.json());
+const PORT = 3000;
+
+app.use(bodyParser.json());
+app.use(cors());
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Kgp#2113004',
+  database: 'cricket_event_db'
+});
+
+db.connect((err) => {
+  if (err) throw err;
+  console.log('MySQL connected.');
+});
+
+module.exports = db;
+
+const matchRoutes = require('./match');
+const playerRoutes = require('./player');
+const leaderboardRoutes = require('./leaderboard');
+const eventsRoutes = require("./events");
+const teamRoutes = require('./team');
+
+app.use('/api', matchRoutes);
+app.use('/api', playerRoutes);
+app.use('/api', leaderboardRoutes);
+app.use('/api', eventsRoutes);
+app.use('/api', teamRoutes);
+
+app.listen(PORT, '192.168.254.243', () => {
+  console.log(`Server is running`);
+});
