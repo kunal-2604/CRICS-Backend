@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: 'localhost',
+  host: 'caboose.proxy.rlwy.net',
   user: 'root',
-  password: 'Kgp#2113004',
-  database: 'cricket_event_db'
+  password: 'sKYHPXftMPhhedhmydhWgewYpKgrNIYO',
+  database: 'railway'
 });
 
 db.connect((err) => {
