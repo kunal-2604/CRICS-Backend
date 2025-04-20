@@ -5,13 +5,13 @@ const mysql = require('mysql2');
 
 const app = express();
 app.use(bodyParser.json());
-const PORT = 18274;
+const PORT = 3306;
 
 app.use(bodyParser.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: 'caboose.proxy.rlwy.net',
+  host: 'mysql.railway.internal',
   user: 'root',
   password: 'sKYHPXftMPhhedhmydhWgewYpKgrNIYO',
   database: 'railway'
