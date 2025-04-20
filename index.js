@@ -2,19 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-const PORT = 3306;
+const PORT = process.env.PORT || 3306;
 
 app.use(bodyParser.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: 'mysql.railway.internal',
-  user: 'root',
-  password: 'sKYHPXftMPhhedhmydhWgewYpKgrNIYO',
-  database: 'railway'
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE
 });
 
 db.connect((err) => {
